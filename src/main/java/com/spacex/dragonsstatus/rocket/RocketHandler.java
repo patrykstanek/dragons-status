@@ -19,9 +19,7 @@ class RocketHandler {
 
     public Mono<Void> addRocket(String name) {
         validateName(name);
-        return Mono.just(name)
-                .flatMap(this::buildRocket)
-                .flatMap(repository::save)
+        return repository.save(buildRocket(name))
                 .doOnError(error -> log.error("Error during adding rocket named = %s".formatted(name), error))
                 .doOnSuccess(aVoid -> log.debug("Successfully added rocket named = %s".formatted(name)));
     }
@@ -29,8 +27,7 @@ class RocketHandler {
     public Mono<Void> updateStatus(String name, RocketStatus status) {
         validateName(name);
         validateStatus(status);
-        return Mono.just(name)
-                .flatMap(it -> repository.updateStatus(name, status))
+        return repository.updateStatus(name, status)
                 .doOnError(error -> log.error("Error during changing status of rocket named = %s".formatted(name), error))
                 .doOnSuccess(aVoid -> log.debug("Successfully changed the status of rocket named = %s".formatted(name)));
     }
@@ -47,7 +44,7 @@ class RocketHandler {
         }
     }
 
-    private Mono<Rocket> buildRocket(String name) {
-        return Mono.just(new Rocket(name));
+    private Rocket buildRocket(String name) {
+        return new Rocket(name);
     }
 }

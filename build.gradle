@@ -52,7 +52,7 @@ jar {
 	enabled = true
 	manifest {
 		attributes(
-			'Implementation-Title': 'My Spring Library',
+			'Implementation-Title': 'Dragons statuses',
 			'Implementation-Version': version
 		)
 	}

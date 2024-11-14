@@ -1,3 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.spacex.dragonsstatus.rocket.infrastructure.RocketRepositoryConfig,\
-com.spacex.dragonsstatus.rocket.RocketConfig
+com.spacex.dragonsstatus.rocket.RocketConfig,\
+com.spacex.dragonsstatus.mission.infrastructure.MissionRepositoryConfig,\
+com.spacex.dragonsstatus.mission.MissionConfig

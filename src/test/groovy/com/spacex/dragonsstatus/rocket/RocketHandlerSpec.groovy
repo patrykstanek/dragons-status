@@ -84,7 +84,7 @@ class RocketHandlerSpec extends Specification {
         when: "updating the rocket status"
             handler.updateStatus(rocketName, status).block()
 
-        then: "an error is logged"
+        then: "an error is thrown"
             1 * repository.updateStatus(rocketName, status) >> Mono.error(exception)
             thrown(RuntimeException)
     }

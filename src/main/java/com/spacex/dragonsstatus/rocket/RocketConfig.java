@@ -4,15 +4,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RocketConfig {
+class RocketConfig {
 
     @Bean
-    public RocketHandler rocketHandler(RocketRepository rocketRepository) {
+    RocketHandler rocketHandler(RocketRepository rocketRepository) {
         return new RocketHandler(rocketRepository);
     }
 
     @Bean
-    public RocketFacade rocketFacade(RocketHandler rocketHandler) {
+    RocketFacade rocketFacade(RocketHandler rocketHandler) {
         return new RocketFacade(rocketHandler);
     }
 }

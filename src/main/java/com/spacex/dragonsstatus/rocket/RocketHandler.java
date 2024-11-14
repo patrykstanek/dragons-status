@@ -26,6 +26,21 @@ class RocketHandler {
                 .doOnSuccess(aVoid -> log.debug("Successfully added rocket named = %s".formatted(name)));
     }
 
+    public Mono<Void> updateStatus(String name, RocketStatus status) {
+        validateName(name);
+        validateStatus(status);
+        return Mono.just(name)
+                .flatMap(it -> repository.updateStatus(name, status))
+                .doOnError(error -> log.error("Error during changing status of rocket named = %s".formatted(name), error))
+                .doOnSuccess(aVoid -> log.debug("Successfully changed the status of rocket named = %s".formatted(name)));
+    }
+
+    private void validateStatus(RocketStatus status) {
+        if (status == null) {
+            throw new InvalidInputException("Rocket status must not be null");
+        }
+    }
+
     private void validateName(String name) {
         if (!hasText(name)) {
             throw new InvalidInputException("Rocket name cannot be null or empty.");

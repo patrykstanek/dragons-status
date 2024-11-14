@@ -2,6 +2,7 @@ package com.spacex.dragonsstatus.rocket.infrastructure;
 
 import com.spacex.dragonsstatus.rocket.Rocket;
 import com.spacex.dragonsstatus.rocket.RocketRepository;
+import com.spacex.dragonsstatus.rocket.RocketStatus;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -17,6 +18,11 @@ class MapRocketRepository implements RocketRepository {
 
     @Override
     public Mono<Void> save(Rocket rocket) {
+        return Mono.empty();
+    }
+
+    @Override
+    public Mono<Void> updateStatus(String name, RocketStatus newStatus) {
         return Mono.empty();
     }
 }

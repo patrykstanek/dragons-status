@@ -5,11 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RocketRepositoryConfig {
+class RocketRepositoryConfig {
 
     @Bean
-    public RocketRepository rocketRepository() {
+    RocketRepository rocketRepository() {
         return new MapRocketRepository();
     }
 }
-

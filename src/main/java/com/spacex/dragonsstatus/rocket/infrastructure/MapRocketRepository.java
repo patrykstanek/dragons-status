@@ -45,16 +45,14 @@ class MapRocketRepository implements RocketRepository {
     }
 
     @Override
-    public Flux<Rocket> findAll() {
-        return Flux.defer(() ->
-                Flux.fromIterable(rockets.values())
-        );
+    public Mono<Rocket> findByName(String name) {
+        return Mono.justOrEmpty(rockets.get(name));
     }
 
     @Override
-    public Mono<Rocket> findByName(String name) {
-        return Mono.defer(() ->
-                Mono.justOrEmpty(rockets.get(name))
+    public Flux<Rocket> findAll() {
+        return Flux.defer(() ->
+                Flux.fromIterable(rockets.values())
         );
     }
 

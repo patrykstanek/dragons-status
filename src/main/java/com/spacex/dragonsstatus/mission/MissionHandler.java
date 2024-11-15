@@ -68,7 +68,7 @@ class MissionHandler {
 
     private void validateStatus(MissionStatus status) {
         if (status == null) {
-            throw new InvalidInputException("Misssion status must not be null");
+            throw new InvalidInputException("Mission status must not be null");
         }
     }
 

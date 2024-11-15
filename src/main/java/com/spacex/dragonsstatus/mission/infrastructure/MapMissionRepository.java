@@ -31,4 +31,10 @@ class MapMissionRepository implements MissionRepository {
         return Mono.empty();
     }
 
+    @Override
+    public Mono<Void> clear() {
+        missions.clear();
+        return Mono.empty();
+    }
+
 }

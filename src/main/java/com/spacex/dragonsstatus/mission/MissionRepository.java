@@ -9,4 +9,6 @@ public interface MissionRepository {
     Mono<Void> updateStatus(String name, MissionStatus newStatus);
 
     Mono<Mission> findByName(String name);
+
+    Mono<Void> clear();
 }

@@ -1,10 +1,10 @@
 package com.spacex.dragonsstatus.rocket;
 
+import com.spacex.dragonsstatus.shared.InvalidInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import reactor.core.publisher.Mono;
-import shared.InvalidInputException;
 
 class RocketHandler {
 

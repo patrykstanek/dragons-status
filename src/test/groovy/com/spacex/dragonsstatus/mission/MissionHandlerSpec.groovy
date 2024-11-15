@@ -2,8 +2,8 @@ package com.spacex.dragonsstatus.mission
 
 import com.spacex.dragonsstatus.mission.exception.MissionNotFoundException
 import com.spacex.dragonsstatus.rocket.Rocket
+import com.spacex.dragonsstatus.shared.InvalidInputException
 import reactor.core.publisher.Mono
-import shared.InvalidInputException
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll

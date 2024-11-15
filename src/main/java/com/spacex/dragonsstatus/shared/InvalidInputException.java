@@ -1,4 +1,4 @@
-package shared;
+package com.spacex.dragonsstatus.shared;
 
 public class InvalidInputException extends RuntimeException {
 

@@ -12,7 +12,7 @@ class MissionConfig {
     }
 
     @Bean
-    MissionFacade missionFacade(MissionHandler missionHandler) {
-        return new MissionFacade(missionHandler);
+    MissionFacade missionFacade(MissionHandler missionHandler, MissionRepository missionRepository) {
+        return new MissionFacade(missionHandler, missionRepository);
     }
 }

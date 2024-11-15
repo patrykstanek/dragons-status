@@ -3,7 +3,7 @@ package com.spacex.dragonsstatus.rocket
 import com.spacex.dragonsstatus.BaseITSpec
 import com.spacex.dragonsstatus.rocket.exception.RocketAlreadyExistException
 import com.spacex.dragonsstatus.rocket.exception.RocketNotFoundException
-import shared.InvalidInputException
+import com.spacex.dragonsstatus.shared.InvalidInputException
 
 class RocketITSpec extends BaseITSpec {
 

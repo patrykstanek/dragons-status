@@ -1,6 +1,7 @@
 package com.spacex.dragonsstatus.mission;
 
 import com.spacex.dragonsstatus.rocket.Rocket;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Set;
@@ -8,9 +9,11 @@ import java.util.Set;
 public class MissionFacade {
 
     private final MissionHandler handler;
+    private final MissionRepository repository;
 
-    public MissionFacade(MissionHandler handler) {
+    public MissionFacade(MissionHandler handler, MissionRepository repository) {
         this.handler = handler;
+        this.repository = repository;
     }
 
     public Mono<Void> addMission(String name) {
@@ -27,5 +30,9 @@ public class MissionFacade {
 
     public Mono<Void> assignRockets(String missionName, Set<Rocket> rockets) {
         return handler.assignRockets(missionName, rockets);
+    }
+
+    public Flux<Mission> findAll() {
+        return repository.findAll();
     }
 }

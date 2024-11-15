@@ -8,11 +8,13 @@ import com.spacex.dragonsstatus.rocket.RocketConfig
 import com.spacex.dragonsstatus.rocket.RocketFacade
 import com.spacex.dragonsstatus.rocket.RocketRepository
 import com.spacex.dragonsstatus.rocket.infrastructure.RocketRepositoryConfig
+import com.spacex.dragonsstatus.summary.MissionSummaryConfig
+import com.spacex.dragonsstatus.summary.MissionSummaryHandler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 
-@SpringBootTest(classes = [RocketConfig, RocketRepositoryConfig, MissionConfig, MissionRepositoryConfig])
+@SpringBootTest(classes = [RocketConfig, RocketRepositoryConfig, MissionConfig, MissionRepositoryConfig, MissionSummaryConfig])
 class BaseITSpec extends Specification {
 
     @Autowired
@@ -27,6 +29,8 @@ class BaseITSpec extends Specification {
     @Autowired
     protected MissionFacade missionFacade
 
+    @Autowired
+    protected MissionSummaryHandler missionSummaryHandler
 
     protected void cleanupRocketRepository() {
         rocketRepository.clear().block()

@@ -1,7 +1,7 @@
 package com.spacex.dragonsstatus.rocket
 
+import com.spacex.dragonsstatus.shared.InvalidInputException
 import reactor.core.publisher.Mono
-import shared.InvalidInputException
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll

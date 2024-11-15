@@ -4,7 +4,7 @@ import com.spacex.dragonsstatus.BaseITSpec
 import com.spacex.dragonsstatus.mission.exception.MissionAlreadyExistException
 import com.spacex.dragonsstatus.mission.exception.MissionNotFoundException
 import com.spacex.dragonsstatus.rocket.Rocket
-import shared.InvalidInputException
+import com.spacex.dragonsstatus.shared.InvalidInputException
 
 class MissionITSpec extends BaseITSpec {
 
@@ -37,6 +37,15 @@ class MissionITSpec extends BaseITSpec {
         then: "MissionAlreadyExistException is thrown"
             missionRepository.findAll().collectList().block().size() == 2
             thrown(MissionAlreadyExistException)
+    }
+
+    def "should find all added missions"() {
+        when: "listing of all missions"
+            def result = missionFacade.findAll().collectList().block()
+
+        then: "the rocket should be found successfully"
+            result.size() == 2
+            result*.name.containsAll(["Luna1", "Vertical Calamity"])
     }
 
     def "should change the status of an existing mission"() {

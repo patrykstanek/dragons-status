@@ -2,12 +2,12 @@ package com.spacex.dragonsstatus.mission;
 
 import com.spacex.dragonsstatus.mission.exception.MissionNotFoundException;
 import com.spacex.dragonsstatus.rocket.Rocket;
+import com.spacex.dragonsstatus.shared.InvalidInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import reactor.core.publisher.Mono;
-import shared.InvalidInputException;
 
 import java.util.Set;
 

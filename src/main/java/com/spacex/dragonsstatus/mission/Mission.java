@@ -1,5 +1,7 @@
 package com.spacex.dragonsstatus.mission;
 
+import com.spacex.dragonsstatus.rocket.Rocket;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -9,12 +11,12 @@ public class Mission {
 
     private final String name;
     private MissionStatus status;
-    private final Set<String> rocketsNames;
+    private final Set<Rocket> assignedRockets;
 
     public Mission(String name) {
         this.name = name;
         this.status = MissionStatus.SCHEDULED;
-        this.rocketsNames = Collections.synchronizedSet(new HashSet<>());
+        this.assignedRockets = Collections.synchronizedSet(new HashSet<>());
     }
 
     public String getName() {
@@ -29,18 +31,27 @@ public class Mission {
         this.status = status;
     }
 
-    public Set<String> getRocketsNames() {
-        synchronized (rocketsNames) {
-            return Set.copyOf(rocketsNames);
+    public Set<Rocket> getAssignedRockets() {
+        synchronized (assignedRockets) {
+            return Set.copyOf(assignedRockets);
         }
     }
 
-    public void addRocket(String rocketName) {
-        rocketsNames.add(rocketName);
+    public void addRocket(Rocket rocket) {
+        assignedRockets.add(rocket);
     }
 
-    public void addRockets(Set<String> rocketNames) {
-        rocketsNames.addAll(rocketNames);
+    public void addRockets(Set<Rocket> rockets) {
+        assignedRockets.addAll(rockets);
+    }
+
+    @Override
+    public String toString() {
+        return "Mission{" +
+                "name='" + name + '\'' +
+                ", status=" + status +
+                ", rocketsNames=" + assignedRockets +
+                '}';
     }
 
     @Override

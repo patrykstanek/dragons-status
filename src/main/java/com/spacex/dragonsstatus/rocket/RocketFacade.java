@@ -1,5 +1,7 @@
 package com.spacex.dragonsstatus.rocket;
 
+import reactor.core.publisher.Mono;
+
 public class RocketFacade {
 
     private final RocketHandler handler;
@@ -8,7 +10,11 @@ public class RocketFacade {
         this.handler = handler;
     }
 
-    public void addRocket(String name) {
-// TODO: Implement
+    public Mono<Void> addRocket(String rocketName) {
+        return handler.addRocket(rocketName);
+    }
+
+    public Mono<Void> updateStatus(String rocketName, RocketStatus newStatus) {
+        return handler.updateStatus(rocketName, newStatus);
     }
 }
